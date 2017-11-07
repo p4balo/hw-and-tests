@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        p.static{
+            position: static;
+            border: 3px solid #73AD21;
+        }
+        input.relative{
+            position: relative;
+            left: 30px;
+        }
+        label.relative{
+            position: relative;
+            left: 30px;
+        }
+    </style>
+    <H1>Free Iq Test:</H1>
+</head>
+<body>
+    <p id="demo1" style="font-size: x-large" class="static"></p>
+    <form id="q1">
+        <div>
+            <input type="checkbox" id="q1Choice1" name="IQ" value="q1answer1" class="relative">
+            <label for="q1Choice1" class="relative">They played minecraft in the last episode of season 3</label>
+            <p> </p>
+            <input type="checkbox" id="q1Choice2" name="IQ" value="q1answer2" class="relative">
+            <label for="q1Choice2" class="relative">I'm piklrick</label>
+            <p> </p>
+            <input type="checkbox" id="q1Choice3" name="IQ" value="q1answer3" class="relative">
+            <label for="q1Choice3" class="relative">What the frick is that</label>
+            <p> </p>
+            <button type="submit" class="relative">Submit Answer</button>
+        </div>
+    </form>
+    <p id ="demo2" style="font-size: x-large" class="static"></p>
+    <form id="q2">
+        <div>
+            <input type="checkbox" id="q2Choice1" name="IQ" value="q2answer1" class="relative">
+            <label for="q2Choice1" class="relative">24 Emeralds</label>
+            <p> </p>
+            <input type="checkbox" id="q2Choice2" name="IQ" value="q2answer2" class="relative">
+            <label for="q2Choice2" class="relative">23 Diamonds</label>
+            <p> </p>
+            <input type="checkbox" id="q2Choice3" name="IQ" value="q2answer3" class="relative">
+            <label for="q2Choice3" class="relative">24 Diamonds</label>
+            <p> </p>
+            <button type="submit">Submit Answer</button>
+        </div>
+    </form>
+    <p id ="demo3" style="font-size: x-large" class="static"></p>
+    <form id ="q3">
+        <div>
+            <input type="checkbox" id="q3Choice1" name="IQ" value="q3answer1" class="relative">
+            <label for="q3Choice1" class="relative">20 Health</label>
+            <p> </p>
+            <input type="checkbox" id="q3Choice2" name="IQ" value="q3answer2" class="relative">
+            <label for="q3Choice2" class="relative">10 Hearts</label>
+            <p> </p>
+            <input type="checkbox" id="q3Choice3" name="IQ" value="q3answer3" class="relative">
+            <label for="q3Choice3" class="relative" >10 Heats</label>
+            <p> </p>
+            <button type="submit">Submit Answer</button>
+        </div>
+    </form>
+    <form id="q4">
+        <p id="demo4" style="font-size: x-large" class="static"></p>
+        <div>
+            <input type="checkbox" id="q4Choice1" name="IQ" value="q4answer1" class="relative">
+            <label for="q4Choice1" class="relative">21</label>
+            <p> </p>
+            <input type="checkbox" id="q4Choice2" name="IQ" value="q4answer2" class="relative">
+            <label for="q4Choice1" class="relative">4.32156</label>
+            <p> </p>
+            <input type="checkbox" id="q4Choice3" name="IQ" value="q4answer3" class="relative">
+            <label for="q4Choice1" class="relative">2</label>
+        </div>
+        <p id="demo5" style="font-size: x-large" class="static"></p>
+        <div>
+            <input type="checkbox" id="q5Choice1" name="IQ" value="q5answer1" class="relative">
+            <label for="q4Choice1" class="relative">dab on them</label>
+            <p> </p>
+            <input type="checkbox" id="q5Choice2" name="IQ" value="q5answer2" class="relative">
+            <label for="q4Choice1" class="relative">nae nae on them</label>
+            <p> </p>
+            <input type="checkbox" id="q5Choice3" name="IQ" value="q5answer3" class="relative">
+            <label for="q4Choice1" class="relative">I'm a jack pauler</label>
+            <p> </p>
+        </div>
+        <button type="submit">Submit Answers</button>
+    </form>
+    <form id="inputAge">
+        <p> </p>
+        <input id="age" type="text" maxlength="2">
+        <br>
+        <label for="age">Enter in your age</label>
+        <p> </p>
+        <button type="submit">Submit Age</button>
+    </form>
+    <form id="showIQ">
+        <p> </p>
+        <button type="submit">Show IQ</button>
+    </form>
+    <p> </p>
+    <p id="log"></p>
+    <p id="retards"></p>
+    <script>
+        var question1 = "Do you watch Rick and Morty";
+        document.getElementById("demo1").innerHTML = question1;
+        var question2 = "How many diamonds does it takes craft diamond armor";
+        document.getElementById("demo2").innerHTML = question2;
+        var question3 = "How many hearts does a minecraft character have";
+        document.getElementById("demo3").innerHTML = question3;
+        var question4 = "What is the log of 100";
+        document.getElementById("demo4").innerHTML = question4;
+        var question5 = "What do you do to your haters";
+        document.getElementById("demo5").innerHTML = question5;
+        var form1 = document.getElementById("q1");
+        var form2 = document.getElementById("q2");
+        var form3 = document.getElementById("q3");
+        var form4 = document.getElementById("q4");
+        var age = document.getElementById("inputAge");
+        var showIQ = document.getElementById("showIQ");
+        var log = document.querySelector("#log");
+        var iqnumb = 0;
+        var output = "";
+        var question1Answer = false;
+        var question2Answer = false;
+        var question3Answer = false;
+        var ageAnswer = false;
+        form1.addEventListener("submit",function(event){
+            if(!question1Answer) {
+                var data = new FormData(form1);
+                for (const entry of data) {
+                    if (entry[1] === "q1answer3")
+                        iqnumb += 10;
+                    else if (entry[1] === "q1answer2")
+                        iqnumb += 150;
+                    else
+                        iqnumb += 100;
+                };
+                question1Answer = true;
+                event.preventDefault();
+            }
+        }, false);
+        form2.addEventListener("submit",function(event){
+            if(!question2Answer) {
+                var data = new FormData(form2);
+                for(const entry of data){
+                    if(entry[1] === "q2answer1"){
+                        iqnumb -= 50;
+                    }
+                    else if(entry[1] === "q2answer2"){
+                        iqnumb -= 25;
+                    }
+                    else{
+                        iqnumb += 50;
+                    }
+                }
+                question2Answer = true;
+                event.preventDefault();
+            }
+        }, false);
+        form3.addEventListener("submit",function(event){
+            if(!question3Answer){
+                var data = new FormData(form3);
+                for(const entry of data){
+                    if(entry[1] === "q3answer1"){
+                        iqnumb += 25;
+                    }
+                    else if(entry[1] === "q3answer2"){
+                        iqnumb += 25;
+                    }
+                    else{
+                        iqnumb -= 50;
+                    }
+                }
+                question3Answer = true;
+                event.preventDefault();
+            }
+        }, false);
+        form4.addEventListener("submit",function(event){
+            var data = new FormData(form4);
+            var output1 =""
+            for(const entry of data){
+                if(entry[1] === "q4answer1"){
+                    iqnumb-=20;
+                }
+                else if(entry[1] === "q4answer2"){
+                    iqnumb-=10;
+                }
+                else if(entry[1] === "q4answer3"){
+                    iqnumb+=20;
+                    output1 = "im going to the retards";
+                }
+                else if(entry[1] === "q5answer1"){
+                    iqnumb+=20;
+                }
+                else if(entry[1] === "q5answer2"){
+                    iqnumb-=10;
+                }
+                else if(entry[1] === "q5answer3"){
+                    iqnumb-=25;
+                    output1+= " and im stambo";
+                }
+
+            }
+            document.getElementById("retards").innerHTML = output1;
+            event.preventDefault();
+        }, false);
+        age.addEventListener("submit",function(event){
+            if(!ageAnswer){
+                var text = document.getElementById("age").value;
+                if(text < 21){
+                    iqnumb /= 1.5;
+                }
+                else if(text > 21 && text < 45){
+                    iqnumb /= 1;
+                }
+                else{
+                    iqnumb *= 1.5;
+                }
+                output = "IQ" + " = " + Math.floor(iqnumb); + "\r";
+                ageAnswer = true;
+                event.preventDefault();
+            }
+        }, false);
+        showIQ.addEventListener("submit",function(event){
+            if(question1Answer&&question2Answer&&question3Answer&&ageAnswer) {
+                log.innerHTML = output;
+                event.preventDefault();
+            }
+            else{
+                log.innerHTML = "You haven't answered all the questions";
+                event.preventDefault();
+            }
+        }, false);
+    </script>
+</body>
+</html>
